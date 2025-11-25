@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Perfil">
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="409dp"
+        android:layout_height="889dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView23"
+                android:layout_width="match_parent"
+                android:layout_height="47dp"
+                android:text="Usuário"
+                android:textAlignment="center"
+                android:textColor="#FAF7F7"
+                android:textSize="34sp" />
+
+            <TextView
+                android:id="@+id/textView24"
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:text="usuárioconvidado"
+                android:textAlignment="center"
+                android:textColor="#84FFFCFC"
+                android:textSize="20sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="180dp"
+                    android:layout_height="200dp"
+                    android:layout_marginLeft="10dp"
+                    android:backgroundTint="#2CFFFFFF">
+
+                    <LinearLayout
+                        android:layout_width="180dp"
+                        android:layout_height="200dp"
+                        android:background="#2CFFFFFF"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/imageView18"
+                            android:layout_width="match_parent"
+                            android:layout_height="84dp"
+                            android:src="@drawable/favoritos" />
+
+                        <TextView
+                            android:id="@+id/textView900"
+                            android:layout_width="match_parent"
+                            android:layout_height="51dp"
+                            android:text="0"
+                            android:textAlignment="center"
+                            android:textColor="#FDFDFD"
+                            android:textSize="34sp" />
+
+                        <TextView
+                            android:id="@+id/textView1000"
+                            android:layout_width="match_parent"
+                            android:layout_height="65dp"
+                            android:text="Curtidas"
+                            android:textAlignment="center"
+                            android:textColor="#FFFFFF"
+                            android:textSize="24sp" />
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="180dp"
+                    android:layout_height="200dp"
+                    android:layout_marginLeft="25dp"
+                    android:backgroundTint="#2CFFFFFF">
+
+                    <LinearLayout
+                        android:layout_width="180dp"
+                        android:layout_height="200dp"
+                        android:background="#2CFFFFFF"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/imageView199"
+                            android:layout_width="match_parent"
+                            android:layout_height="84dp"
+                            android:src="@drawable/caps_lidos" />
+
+                        <TextView
+                            android:id="@+id/textView901"
+                            android:layout_width="match_parent"
+                            android:layout_height="51dp"
+                            android:text="0"
+                            android:textAlignment="center"
+                            android:textColor="#FDFDFD"
+                            android:textSize="34sp" />
+
+                        <TextView
+                            android:id="@+id/textView1001"
+                            android:layout_width="match_parent"
+                            android:layout_height="65dp"
+                            android:text="Capítulos Lidos"
+                            android:textAlignment="center"
+                            android:textColor="#FFFFFF"
+                            android:textSize="24sp" />
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="180dp"
+                    android:layout_height="200dp"
+                    android:layout_marginLeft="10dp"
+                    android:backgroundTint="#2CFFFFFF">
+
+                    <LinearLayout
+                        android:layout_width="180dp"
+                        android:layout_height="200dp"
+                        android:background="#2CFFFFFF"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/imageView201"
+                            android:layout_width="match_parent"
+                            android:layout_height="84dp"
+                            android:src="@drawable/relogio" />
+
+                        <TextView
+                            android:id="@+id/textView903"
+                            android:layout_width="match_parent"
+                            android:layout_height="51dp"
+                            android:text="0"
+                            android:textAlignment="center"
+                            android:textColor="#FDFDFD"
+                            android:textSize="34sp" />
+
+                        <TextView
+                            android:id="@+id/textView1003"
+                            android:layout_width="match_parent"
+                            android:layout_height="65dp"
+                            android:text="Lendo"
+                            android:textAlignment="center"
+                            android:textColor="#FFFFFF"
+                            android:textSize="24sp" />
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="180dp"
+                    android:layout_height="200dp"
+                    android:layout_marginLeft="25dp"
+                    android:backgroundTint="#2CFFFFFF">
+
+                    <LinearLayout
+                        android:layout_width="180dp"
+                        android:layout_height="200dp"
+                        android:background="#2CFFFFFF"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/imageView203"
+                            android:layout_width="match_parent"
+                            android:layout_height="84dp"
+                            android:src="@drawable/close" />
+
+                        <TextView
+                            android:id="@+id/textView56"
+                            android:layout_width="match_parent"
+                            android:layout_height="51dp"
+                            android:text="0"
+                            android:textAlignment="center"
+                            android:textColor="#FDFDFD"
+                            android:textSize="34sp" />
+
+                        <TextView
+                            android:id="@+id/textView57"
+                            android:layout_width="match_parent"
+                            android:layout_height="65dp"
+                            android:text="Dropados"
+                            android:textAlignment="center"
+                            android:textColor="#FFFFFF"
+                            android:textSize="24sp" />
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="180dp"
+                    android:layout_height="200dp"
+                    android:layout_marginLeft="10dp"
+                    android:backgroundTint="#2CFFFFFF">
+
+                    <LinearLayout
+                        android:layout_width="180dp"
+                        android:layout_height="200dp"
+                        android:background="#2CFFFFFF"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/imageView202"
+                            android:layout_width="match_parent"
+                            android:layout_height="84dp"
+                            android:src="@drawable/check" />
+
+                        <TextView
+                            android:id="@+id/textView904"
+                            android:layout_width="match_parent"
+                            android:layout_height="51dp"
+                            android:text="0"
+                            android:textAlignment="center"
+                            android:textColor="#FDFDFD"
+                            android:textSize="34sp" />
+
+                        <TextView
+                            android:id="@+id/textView1004"
+                            android:layout_width="match_parent"
+                            android:layout_height="65dp"
+                            android:text="Lidos"
+                            android:textAlignment="center"
+                            android:textColor="#FFFFFF"
+                            android:textSize="24sp" />
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+
+            <Button
+                android:id="@+id/button29"
+                android:layout_width="360dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="23dp"
+                android:layout_marginTop="40dp"
+                android:backgroundTint="#3BFF0000"
+                android:text="Sair da conta" />
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

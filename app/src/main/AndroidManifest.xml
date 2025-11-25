@@ -12,16 +12,23 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EclipseReads">
         <activity
-            android:name=".MainActivity"
-            android:exported="true"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.EclipseReads">
+            android:name=".Log0regis"
+            android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Central"
+            android:exported="false" />
+        <activity
+            android:name=".Info_livro"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
     </application>
 
 </manifest>
