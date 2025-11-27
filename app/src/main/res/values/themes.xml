@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.EclipseReads" parent="android:Theme.Material.Light.NoActionBar" />
-    <!-- Base application theme. -->
+    <style name="Theme.EclipseReads" parent="Base.Theme.EclipseReads" />
+
     <style name="Base.Theme.EclipseReads" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+
+        <item name="colorSurface">@color/surface_color</item>
+        <item name="colorSurfaceContainerHigh">@color/surface_high</item>
+
+        <item name="android:colorBackground">@color/screen_background</item>
+
+
     </style>
+
 </resources>

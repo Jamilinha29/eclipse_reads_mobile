@@ -13,7 +13,7 @@
         android:theme="@style/Theme.EclipseReads">
         <activity
             android:name=".Log0regis"
-            android:exported="false">
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,9 +25,6 @@
             android:exported="false" />
         <activity
             android:name=".Info_livro"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
             android:exported="false" />
     </application>
 

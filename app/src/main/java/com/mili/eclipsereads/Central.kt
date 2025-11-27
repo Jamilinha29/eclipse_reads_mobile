@@ -1,13 +1,13 @@
 package com.mili.eclipsereads
 
 import android.os.Bundle
-import android.widget.ImageView // Importação necessária
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.commit // Necessário para a sintaxe DSL
 import androidx.fragment.app.replace // Necessário para a sintaxe DSL
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class Central : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,54 +21,57 @@ class Central : AppCompatActivity() {
             insets
         }
 
-
         if (savedInstanceState == null) {
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.fragment_central, Inicio())
-                .commit()
-        }
-
-
-        findViewById<ImageView>(R.id.Buscar).setOnClickListener {
             supportFragmentManager.commit {
                 replace<Inicio>(R.id.fragment_central)
                 setReorderingAllowed(true)
-
             }
         }
 
-        findViewById<ImageView>(R.id.buscar0).setOnClickListener {
-            supportFragmentManager.commit {
-                replace<Buscador>(R.id.fragment_central)
-                setReorderingAllowed(true)
-                addToBackStack(null)
+        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+        bottomNavigationView.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.navigation_home -> {
+                    supportFragmentManager.commit {
+                        replace<Inicio>(R.id.fragment_central)
+                        setReorderingAllowed(true)
+                    }
+                    true
+                }
+                R.id.navigation_search -> {
+                    supportFragmentManager.commit {
+                        replace<Buscador>(R.id.fragment_central)
+                        setReorderingAllowed(true)
+                        addToBackStack(null)
+                    }
+                    true
+                }
+                R.id.navigation_library -> {
+                    supportFragmentManager.commit {
+                        replace<Minha_biblioteca>(R.id.fragment_central)
+                        setReorderingAllowed(true)
+                        addToBackStack(null)
+                    }
+                    true
+                }
+                R.id.navigation_config -> {
+                    supportFragmentManager.commit {
+                        replace<Configuracoes>(R.id.fragment_central)
+                        setReorderingAllowed(true)
+                        addToBackStack(null)
+                    }
+                    true
+                }
+                R.id.navigation_profile -> {
+                    supportFragmentManager.commit {
+                        replace<Perfil>(R.id.fragment_central)
+                        setReorderingAllowed(true)
+                        addToBackStack(null)
+                    }
+                    true
+                }
+                else -> false
             }
         }
-
-
-        findViewById<ImageView>(R.id.buscar00).setOnClickListener {
-            supportFragmentManager.commit {
-                replace<Minha_biblioteca>(R.id.fragment_central)
-                setReorderingAllowed(true)
-                addToBackStack(null)
-            }
-        }
-
-        findViewById<ImageView>(R.id.buscar000).setOnClickListener {
-            supportFragmentManager.commit {
-                replace<Configuracoes>(R.id.fragment_central)
-                setReorderingAllowed(true)
-                addToBackStack(null)
-            }
-        }
-
-        findViewById<ImageView>(R.id.buscar0000).setOnClickListener {
-            supportFragmentManager.commit {
-                replace<Perfil>(R.id.fragment_central)
-                setReorderingAllowed(true)
-                addToBackStack(null)
-            }
-        }
-
     }
 }

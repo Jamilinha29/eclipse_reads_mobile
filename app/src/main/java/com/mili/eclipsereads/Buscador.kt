@@ -4,14 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.fragment.app.commit
-import androidx.fragment.app.replace
 
 class Buscador : Fragment() {
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -22,6 +21,7 @@ class Buscador : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         val mainView = view.findViewById<View>(R.id.main)
         if (mainView != null) {
             ViewCompat.setOnApplyWindowInsetsListener(mainView) { v, insets ->
@@ -30,17 +30,36 @@ class Buscador : Fragment() {
                 insets
             }
         }
-        view.findViewById<ImageView>(R.id.imageView5).setOnClickListener{
-            parentFragmentManager.commit {
-                replace<Info_livro>(R.id.fragment_central)
-                addToBackStack(null)
+
+        val searchView = view.findViewById<SearchView>(R.id.search_view_no_layout)
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                // Ação a ser executada quando o usuário submeter a pesquisa (pressionar Enter)
+                // Por exemplo, você pode iniciar a pesquisa de fato aqui.
+                filterResults(query)
+                return true
             }
-        }
-        view.findViewById<ImageView>(R.id.imageView50).setOnClickListener{
-            parentFragmentManager.commit {
-                replace<Info_livro>(R.id.fragment_central)
-                addToBackStack(null)
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                // Ação a ser executada enquanto o usuário digita
+                // Por exemplo, filtrar a lista de resultados em tempo real.
+                filterResults(newText)
+                return true
             }
+        })
+    }
+
+    private fun filterResults(query: String?) {
+        // Aqui você implementaria a lógica para filtrar os seus dados
+        // com base na consulta de pesquisa (query).
+        // Por exemplo, se você tiver uma lista de livros em um RecyclerView,
+        // você atualizaria o adapter do RecyclerView com os resultados filtrados.
+
+        // Exemplo de log (substitua pelo seu código de filtragem):
+        if (!query.isNullOrEmpty()) {
+            println("Pesquisando por: $query")
+        } else {
+            println("A pesquisa está vazia")
         }
     }
 }

@@ -13,101 +13,29 @@
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/materialCardView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/materialCardView"
         android:layout_width="0dp"
-        android:layout_height="100dp"
-        android:gravity="center|bottom"
-        android:padding="20dp"
-        app:cardBackgroundColor="#6A3D89"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/bottom_nav_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fragment_central">
+        app:layout_constraintStart_toStartOf="parent">
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottomNavigationView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#00FFFFFF">
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            app:itemIconSize="30dp"
+            app:itemIconTint="@android:color/white"
+            app:labelVisibilityMode="unlabeled"
+            app:menu="@menu/bottom_nav_menu" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#03FFFFFF"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_width="80dp"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:id="@+id/Buscar"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/home" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="80dp"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:id="@+id/buscar0"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/pesquisa" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="80dp"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:id="@+id/buscar00"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/biblioteca" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="80dp"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:id="@+id/buscar000"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/configuracao" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:id="@+id/buscar0000"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/perfil" />
-
-                </LinearLayout>
-
-            </LinearLayout>
-        </com.google.android.material.bottomnavigation.BottomNavigationView>
     </com.google.android.material.card.MaterialCardView>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

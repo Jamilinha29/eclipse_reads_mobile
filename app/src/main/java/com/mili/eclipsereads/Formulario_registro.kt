@@ -1,4 +1,4 @@
-package com.example.projeto2
+package com.mili.eclipsereads
 
 import android.content.Context
 import android.content.Intent
@@ -11,8 +11,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
-import com.mili.eclipsereads.Central
-import com.mili.eclipsereads.R
 
 class Formulario_registro : Fragment() {
 
@@ -42,14 +40,10 @@ class Formulario_registro : Fragment() {
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
 
             override fun afterTextChanged(s: Editable?) {
-
                 val nomeInput = nomeEditText.text.toString().trim()
                 val emailInput = emailEditText.text.toString().trim()
                 val senhaInput = senhaEditText.text.toString().trim()
                 val confirmarSenhaInput = confirmarSenhaEditText.text.toString().trim()
-
-                salvarNomeUsuario(nomeInput)
-                salvarEmailUsuario(emailInput)
 
                 val camposPreenchidos =
                     nomeInput.isNotEmpty() &&
@@ -62,7 +56,7 @@ class Formulario_registro : Fragment() {
                 button4.isEnabled = camposPreenchidos && senhasCoincidem
 
                 if (camposPreenchidos && !senhasCoincidem) {
-                    confirmarSenhaEditText.error = "As senhas não batem"
+                    confirmarSenhaEditText.error = "As senhas não coincidem"
                 } else {
                     confirmarSenhaEditText.error = null
                 }
@@ -75,20 +69,24 @@ class Formulario_registro : Fragment() {
         confirmarSenhaEditText.addTextChangedListener(formTextWatcher)
 
         button4.setOnClickListener {
+            val nomeInput = nomeEditText.text.toString().trim()
+            val emailInput = emailEditText.text.toString().trim()
+
+            salvarDadosUsuario(nomeInput, emailInput)
+
             val intent = Intent(requireContext(), Central::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
         }
 
         return view
     }
 
-    private fun salvarNomeUsuario(nome: String) {
+    private fun salvarDadosUsuario(nome: String, email: String) {
         val prefs = requireActivity().getSharedPreferences("DADOS_USUARIO", Context.MODE_PRIVATE)
-        prefs.edit().putString("NOME_USUARIO", nome).apply()
-    }
-
-    private fun salvarEmailUsuario(email: String) {
-        val prefs = requireActivity().getSharedPreferences("DADOS_USUARIO", Context.MODE_PRIVATE)
-        prefs.edit().putString("EMAIL_USUARIO", email).apply()
+        val editor = prefs.edit()
+        editor.putString("NOME_USUARIO", nome)
+        editor.putString("EMAIL_USUARIO", email)
+        editor.apply()
     }
 }

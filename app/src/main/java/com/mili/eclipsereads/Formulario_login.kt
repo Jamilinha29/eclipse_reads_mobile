@@ -1,15 +1,15 @@
-package com.example.projeto2
+package com.mili.eclipsereads
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
-import com.mili.eclipsereads.Central
-import com.mili.eclipsereads.R
 
 class Formulario_login : Fragment() {
 
@@ -26,10 +26,10 @@ class Formulario_login : Fragment() {
 
         entrarButton.isEnabled = false
 
-        val textWatcher = object : android.text.TextWatcher {
+        val textWatcher = object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
-            override fun afterTextChanged(s: android.text.Editable?) {
+            override fun afterTextChanged(s: Editable?) {
                 val email = emailEditText.text.toString().trim()
                 val senha = senhaEditText.text.toString().trim()
                 entrarButton.isEnabled = email.isNotEmpty() && senha.isNotEmpty()

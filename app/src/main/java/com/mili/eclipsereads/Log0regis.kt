@@ -1,16 +1,21 @@
 package com.mili.eclipsereads
 
 import android.os.Bundle
+import android.view.animation.AnimationUtils
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.fragment.app.Fragment
-import com.example.projeto2.Formulario_login
-import com.example.projeto2.Formulario_registro
+import androidx.fragment.app.commit
+import androidx.fragment.app.replace
+
 
 class Log0regis : AppCompatActivity() {
+    private var mostrandoLogin = true
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -22,26 +27,77 @@ class Log0regis : AppCompatActivity() {
             insets
         }
 
+        val botaoCadastro = findViewById<Button>(R.id.button9)
+        val botaoLogin = findViewById<Button>(R.id.button3)
+
         if (savedInstanceState == null) {
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.form_placeholder, Formulario_login())
-                .commit()
+            supportFragmentManager.commit {
+                setReorderingAllowed(true)
+                setCustomAnimations(
+                    R.anim.slide_in_left,
+                    R.anim.slide_out_right
+                )
+                replace<Formulario_login>(R.id.form_placeholder)
+            }
         }
 
-        val botaoParaRegistro = findViewById<Button>(R.id.button9)
-        botaoParaRegistro?.setOnClickListener {
-            trocarFragment(Formulario_registro())
+        animarBotoes(botaoLogin, botaoCadastro, mostrandoLogin)
+
+
+        botaoCadastro?.setOnClickListener {
+            if (mostrandoLogin) {
+                mostrandoLogin = false
+                animarBotoes(botaoLogin, botaoCadastro, mostrandoLogin)
+                supportFragmentManager.commit {
+                    setReorderingAllowed(true)
+                    setCustomAnimations(
+                        R.anim.slide_in_right,   // entra da direita
+                        R.anim.slide_out_left    // sai para esquerda
+                    )
+                    replace<Formulario_registro>(R.id.form_placeholder)
+                }
+            }
         }
 
-        val botaoParaLogin = findViewById<Button>(R.id.button3)
-        botaoParaLogin?.setOnClickListener {
-            trocarFragment(Formulario_login())
+        botaoLogin?.setOnClickListener {
+            if (!mostrandoLogin) {
+                mostrandoLogin = true
+                animarBotoes(botaoLogin, botaoCadastro, mostrandoLogin)
+                supportFragmentManager.commit {
+                    setReorderingAllowed(true)
+                    setCustomAnimations(
+                        R.anim.slide_in_left,    // entra da esquerda
+                        R.anim.slide_out_right   // sai para direita
+                    )
+                    replace<Formulario_login>(R.id.form_placeholder)
+                }
+            }
         }
     }
+    private fun animarBotoes(botaoLogin: Button, botaoCadastro: Button, mostrandoLogin: Boolean) {
+        val anim = AnimationUtils.loadAnimation(this, R.anim.fade_tint)
 
-    private fun trocarFragment(fragment: Fragment) {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.form_placeholder, fragment)
-            .commit()
+        if (mostrandoLogin) {
+            // LOGIN ativo
+            botaoLogin.backgroundTintList =
+                android.content.res.ColorStateList.valueOf(android.graphics.Color.parseColor("#00FFFFFF"))
+            botaoLogin.setTextColor(android.graphics.Color.parseColor("#C592FF"))
+            botaoLogin.startAnimation(anim)
+
+            // CADASTRO inativo
+            botaoCadastro.backgroundTintList =
+                android.content.res.ColorStateList.valueOf(android.graphics.Color.parseColor("#10070707"))
+            botaoCadastro.setTextColor(android.graphics.Color.parseColor("#C592FF"))
+
+        } else {
+            botaoCadastro.backgroundTintList =
+                android.content.res.ColorStateList.valueOf(android.graphics.Color.parseColor("#00FFFFFF"))
+            botaoCadastro.setTextColor(android.graphics.Color.parseColor("#C592FF"))
+            botaoCadastro.startAnimation(anim)
+
+            botaoLogin.backgroundTintList =
+                android.content.res.ColorStateList.valueOf(android.graphics.Color.parseColor("#10070707"))
+            botaoLogin.setTextColor(android.graphics.Color.parseColor("#C592FF"))
+        }
     }
 }

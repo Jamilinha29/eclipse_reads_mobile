@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#10114B"
+    android:background="@drawable/login"
     tools:context=".Log0regis">
 
     <ImageView
@@ -35,7 +35,10 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:background="#2B2A33"
+            >
+
 
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="261dp"
@@ -47,24 +50,26 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:background="#2B2A33">
 
                     <Button
                         android:id="@+id/button3"
                         android:layout_width="134dp"
                         android:layout_height="wrap_content"
                         android:backgroundTint="#00FFFFFF"
-                        android:text="Entrar"
+                        android:text="Login"
 
-                        android:textColor="#7803FD" />
+                        android:textColor="#C592FF" />
 
                     <Button
                         android:id="@+id/button9"
-                        android:layout_width="130dp"
-                        android:layout_height="wrap_content"
+                        android:layout_width="129dp"
+                        android:layout_height="match_parent"
                         android:backgroundTint="#10070707"
-                        android:text="Registrar"
-                        android:textColor="#7803FD" />
+                        android:text="Cadastro"
+                        android:textColor="#C592FF" />
+
                 </LinearLayout>
 
             </com.google.android.material.card.MaterialCardView>
@@ -73,10 +78,9 @@
                 android:id="@+id/form_placeholder"
                 android:layout_width="300dp"
                 android:layout_height="339dp"
-                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="30dp"
-
-                >
+                android:background="#2B2A33">
 
 
             </androidx.fragment.app.FragmentContainerView>
