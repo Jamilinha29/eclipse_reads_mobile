@@ -72,27 +72,15 @@ class Inicio : Fragment() {
         val dailyUpdatesBooks = emptyList<Book>() // Exemplo de lista vazia
 
         // Configura o RecyclerView "Continue Lendo"
-        if (continueReadingBooks.isEmpty()) {
-            continueReadingRecyclerView.visibility = View.GONE
-            emptyContinueReading.visibility = View.VISIBLE
-        } else {
-            continueReadingRecyclerView.visibility = View.VISIBLE
-            emptyContinueReading.visibility = View.GONE
-            continueReadingRecyclerView.adapter = BookAdapter(continueReadingBooks)
-        }
+        continueReadingRecyclerView.visibility = View.VISIBLE
+        emptyContinueReading.visibility = View.GONE
+        continueReadingRecyclerView.adapter = BookAdapter(continueReadingBooks)
 
         // Configura o RecyclerView "Atualizações do Dia"
-        if (dailyUpdatesBooks.isEmpty()) {
-            dailyUpdatesRecyclerView.visibility = View.GONE
-            emptyDailyUpdates.visibility = View.VISIBLE
-        } else {
-            dailyUpdatesRecyclerView.visibility = View.VISIBLE
-            emptyDailyUpdates.visibility = View.GONE
-            dailyUpdatesRecyclerView.adapter = BookAdapter(dailyUpdatesBooks)
-        }
+        dailyUpdatesRecyclerView.visibility = View.GONE
+        emptyDailyUpdates.visibility = View.VISIBLE
     }
 
-    // Supondo que você tenha um BookAdapter como este
     class BookAdapter(private val books: List<Book>) : RecyclerView.Adapter<BookAdapter.BookViewHolder>() {
 
         class BookViewHolder(view: View) : RecyclerView.ViewHolder(view) {
