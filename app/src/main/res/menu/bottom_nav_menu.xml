@@ -14,10 +14,10 @@
         android:title="@string/title_library" />
     <item
         android:id="@+id/navigation_config"
-        android:icon="@drawable/configuracao"
+        android:icon="@drawable/configuracao2"
         android:title="@string/configuracoes_e_temas" />
     <item
         android:id="@+id/navigation_profile"
-        android:icon="@drawable/perfil"
+        android:icon="@drawable/usuario"
         android:title="Perfil" />
 </menu>

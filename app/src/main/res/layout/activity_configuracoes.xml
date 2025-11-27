@@ -34,7 +34,73 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="16dp">
+                android:padding="16dp"
+                android:background="@color/subtle_contrast_background">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="16dp"
+                        android:contentDescription="Ícone de perfil"
+                        app:srcCompat="@drawable/perfil" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Perfil"
+                        android:textAppearance="?attr/textAppearanceHeadline6"
+                        android:textColor="@color/text_primary" />
+                </LinearLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:hint="Nome ou apelido"
+                    app:boxBackgroundColor="@color/bottom_nav_background">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/nome_usuario_edittext"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text_primary"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <Button
+                    android:id="@+id/button_salvar_nome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="8dp"
+                    android:backgroundTint="#6A3D89"
+                    android:text="Salvar"
+                    android:textColor="@color/text_primary" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="?android:colorBackground"
+            app:strokeColor="?attr/colorOutline"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:background="@color/subtle_contrast_background">
 
                 <!-- TÍTULO ESCURO -->
                 <LinearLayout
@@ -113,7 +179,7 @@
                         <Button
                             android:id="@+id/button30"
                             style="@style/Widget.Material3.Button.TextButton"
-                            android:layout_width="98dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:backgroundTint="#6A3D89"
                             android:text="@string/ativar"
@@ -194,7 +260,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="16dp">
+                android:padding="16dp"
+                android:background="@color/subtle_contrast_background">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -269,7 +336,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="16dp">
+                android:padding="16dp"
+                android:background="@color/subtle_contrast_background">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -334,7 +402,8 @@
                     style="@style/Widget.Material3.Button.TextButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/exportar_dados" />
+                    android:text="@string/exportar_dados" 
+                    android:shadowColor="@color/text_primary"/>
 
                 <Button
                     android:id="@+id/button_limpar"

@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -19,8 +20,7 @@ class Inicio : Fragment() {
     private lateinit var emptyContinueReading: TextView
     private lateinit var emptyDailyUpdates: TextView
 
-    // Supondo que você tenha uma classe de dados Book
-    data class Book(val title: String, val author: String, val cover: Int)
+    data class Book(val id: String, val title: String, val author: String, val cover: Int)
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -47,44 +47,93 @@ class Inicio : Fragment() {
             }
         }
 
-        // --- Início da Lógica de Boas-Vindas ---
         val prefs = requireActivity().getSharedPreferences("DADOS_USUARIO", Context.MODE_PRIVATE)
-        val nomeUsuario = prefs.getString("NOME_USUARIO", "Usuário") // "Usuário" é o valor padrão
+        val nomeUsuario = prefs.getString("NOME_USUARIO", "Usuário")
 
         val welcomeTextView = view.findViewById<TextView>(R.id.textView7)
         welcomeTextView.text = "Olá, $nomeUsuario!"
-        // --- Fim da Lógica de Boas-Vindas ---
 
         setupRecyclerViews()
+
+        val verMaisButton1 = view.findViewById<Button>(R.id.button100)
+        val verMaisButton2 = view.findViewById<Button>(R.id.button10)
+
+        val navigateToBuscador = View.OnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_central, Buscador())
+                .addToBackStack(null)
+                .commit()
+        }
+
+        verMaisButton1.setOnClickListener(navigateToBuscador)
+        verMaisButton2.setOnClickListener(navigateToBuscador)
     }
 
     private fun setupRecyclerViews() {
         continueReadingRecyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         dailyUpdatesRecyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
 
-        // Exemplo com lista de livros. Em um aplicativo real, isso viria de um ViewModel ou de uma API.
         val continueReadingBooks = listOf(
-            Book("Quarta capa", "Autor", R.drawable.capa),
-            Book("Outro Livro", "Outro Autor", R.drawable.capa),
-            Book("Mais um Livro", "Mais um Autor", R.drawable.capa)
+            Book("book_4", "Livro em Andamento", "Autor", R.drawable.capa)
         )
 
-        val dailyUpdatesBooks = emptyList<Book>() // Exemplo de lista vazia
+        val dailyUpdatesBooks = emptyList<Book>()
 
-        // Configura o RecyclerView "Continue Lendo"
-        continueReadingRecyclerView.visibility = View.VISIBLE
-        emptyContinueReading.visibility = View.GONE
-        continueReadingRecyclerView.adapter = BookAdapter(continueReadingBooks)
+        val continueReadingAdapter = BookAdapter(continueReadingBooks) { book ->
+            // TODO: Navegar para a página exata onde a leitura foi interrompida
+            navigateToBookDetail(book.id, true)
+        }
 
-        // Configura o RecyclerView "Atualizações do Dia"
-        dailyUpdatesRecyclerView.visibility = View.GONE
-        emptyDailyUpdates.visibility = View.VISIBLE
+        val dailyUpdatesAdapter = BookAdapter(dailyUpdatesBooks) { book ->
+            navigateToBookDetail(book.id)
+        }
+
+        if (continueReadingBooks.isNotEmpty()) {
+            continueReadingRecyclerView.visibility = View.VISIBLE
+            emptyContinueReading.visibility = View.GONE
+            continueReadingRecyclerView.adapter = continueReadingAdapter
+        } else {
+            continueReadingRecyclerView.visibility = View.GONE
+            emptyContinueReading.visibility = View.VISIBLE
+        }
+
+        if (dailyUpdatesBooks.isNotEmpty()) {
+            dailyUpdatesRecyclerView.visibility = View.VISIBLE
+            emptyDailyUpdates.visibility = View.GONE
+            dailyUpdatesRecyclerView.adapter = dailyUpdatesAdapter
+        } else {
+            dailyUpdatesRecyclerView.visibility = View.GONE
+            emptyDailyUpdates.visibility = View.VISIBLE
+        }
     }
 
-    class BookAdapter(private val books: List<Book>) : RecyclerView.Adapter<BookAdapter.BookViewHolder>() {
+    private fun navigateToBookDetail(bookId: String, continueReading: Boolean = false) {
+        val fragment = if (continueReading) {
+            // TODO: Substituir por um fragmento que represente a leitura em andamento
+            LeituraFragment().apply {
+                arguments = Bundle().apply {
+                    putString("BOOK_ID", bookId)
+                }
+            }
+        } else {
+            Info_livro().apply {
+                arguments = Bundle().apply {
+                    putString("BOOK_ID", bookId)
+                }
+            }
+        }
+
+        parentFragmentManager.beginTransaction()
+            .replace(R.id.fragment_central, fragment)
+            .addToBackStack(null)
+            .commit()
+    }
+
+    class BookAdapter(private val books: List<Book>, private val onItemClick: (Book) -> Unit) : 
+        RecyclerView.Adapter<BookAdapter.BookViewHolder>() {
 
         class BookViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-            // Referências para as views do item do livro, se houver
+            // Referências para as views do item do livro
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookViewHolder {
@@ -93,9 +142,22 @@ class Inicio : Fragment() {
         }
 
         override fun onBindViewHolder(holder: BookViewHolder, position: Int) {
-            // Lógica para preencher os dados do livro no ViewHolder
+            val book = books[position]
+            holder.itemView.setOnClickListener { 
+                onItemClick(book)
+            }
         }
 
         override fun getItemCount() = books.size
+    }
+
+    // Fragmento de exemplo para a tela de leitura
+    class LeituraFragment : Fragment() {
+        override fun onCreateView(
+            inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+        ): View? {
+            // TODO: Inflar o layout da tela de leitura e carregar o livro
+            return TextView(requireContext()).apply { text = "Tela de Leitura" } 
+        }
     }
 }

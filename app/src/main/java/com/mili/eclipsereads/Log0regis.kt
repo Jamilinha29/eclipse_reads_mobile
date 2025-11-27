@@ -46,7 +46,7 @@ class Log0regis : AppCompatActivity() {
         botaoCadastro?.setOnClickListener {
             if (mostrandoLogin) {
                 mostrandoLogin = false
-                animarBotoes(botaoLogin, botaoCadastro, mostrandoLogin)
+                animarBotoes(botaoLogin, botaoCadastro, false)
                 supportFragmentManager.commit {
                     setReorderingAllowed(true)
                     setCustomAnimations(
@@ -61,7 +61,7 @@ class Log0regis : AppCompatActivity() {
         botaoLogin?.setOnClickListener {
             if (!mostrandoLogin) {
                 mostrandoLogin = true
-                animarBotoes(botaoLogin, botaoCadastro, mostrandoLogin)
+                animarBotoes(botaoLogin, botaoCadastro, true)
                 supportFragmentManager.commit {
                     setReorderingAllowed(true)
                     setCustomAnimations(

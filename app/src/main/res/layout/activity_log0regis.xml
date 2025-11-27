@@ -10,23 +10,23 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="212dp"
-        android:layout_height="160dp"
-        android:layout_marginStart="89dp"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="90dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.5"
         app:srcCompat="@drawable/logo" />
 
     <com.google.android.material.card.MaterialCardView
-        android:layout_width="345dp"
-        android:layout_height="606dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="31dp"
-        android:layout_marginBottom="53dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="24dp"
+        app:cardBackgroundColor="#00000000"
+        app:cardElevation="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,37 +35,40 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
             android:background="#2B2A33"
-            >
+            android:orientation="vertical"
+            android:padding="16dp">
 
 
             <com.google.android.material.card.MaterialCardView
-                android:layout_width="261dp"
-                android:layout_height="42dp"
-                android:layout_marginLeft="41dp"
-                android:layout_marginTop="80dp"
-                android:backgroundTint="#1F070707">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                app:cardBackgroundColor="#1F070707">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:background="#2B2A33">
+                    android:layout_height="wrap_content"
+                    android:background="#2B2A33"
+                    android:orientation="horizontal">
 
                     <Button
                         android:id="@+id/button3"
-                        android:layout_width="134dp"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:backgroundTint="#00FFFFFF"
                         android:text="Login"
-
                         android:textColor="#C592FF" />
 
                     <Button
                         android:id="@+id/button9"
-                        android:layout_width="129dp"
-                        android:layout_height="match_parent"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:backgroundTint="#10070707"
                         android:text="Cadastro"
                         android:textColor="#C592FF" />
@@ -76,22 +79,19 @@
 
             <androidx.fragment.app.FragmentContainerView
                 android:id="@+id/form_placeholder"
-                android:layout_width="300dp"
-                android:layout_height="339dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="30dp"
-                android:background="#2B2A33">
-
-
-            </androidx.fragment.app.FragmentContainerView>
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="#2B2A33" />
 
             <TextView
                 android:id="@+id/textView10"
-                android:layout_width="314dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="20dp"
-                android:text="Ao continuar, você concorda com nossos Termos de Uso e Política de Privacidade." />
+                android:layout_marginTop="16dp"
+                android:gravity="center_horizontal"
+                android:text="Ao continuar, você concorda com nossos Termos de Uso e Política de Privacidade."
+                android:textAlignment="center" />
 
         </LinearLayout>
 

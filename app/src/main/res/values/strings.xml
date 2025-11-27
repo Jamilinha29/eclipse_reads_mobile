@@ -64,10 +64,11 @@
     <string name="dispositivos_e_dados">Dispositivos e Dados</string>
     <string name="exportar_dados">Exportar dados</string>
     <string name="limpar_dados">Limpar dados</string>
-    <string name="sincronizacao_automatica">Sincronização Automática</string>z
+    <string name="sincronizacao_automatica">Sincronização Automática</string>
     <string name="seus_dados_sao_sincronizados_automaticamente_entre_dispositivos">Seus dados são sincronizados automaticamente entre dispositivos</string>
     <string name="ler_agora">Ler agora</string>
     <string name="favoritar">Favoritar</string>
+    <string name="remover_dos_favoritos">Remover dos favoritos</string>
     <string name="lido">Lido</string>
     <string name="title_home">Início</string>
     <string name="title_library">Biblioteca</string>
