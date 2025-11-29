@@ -1,0 +1,26 @@
+class PermissionActivity : AppCompatActivity() {
+    private lateinit var helper: PermissionsHelper
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        helper = PermissionsHelper(this)
+
+        helper.registerLaunchers(onResult = { map ->
+            val fine = map[Manifest.permission.ACCESS_FINE_LOCATION] ?: false
+            val coarse = map[Manifest.permission.ACCESS_COARSE_LOCATION] ?: false
+            if (!fine && !coarse) {
+                helper.showPermissionRationale(this, "Permissão necessária",
+                    "Precisamos da localização para X.", onOk = { helper.requestLocationPermissions() })
+            }
+        }, onSingleResult = { granted ->
+            if (!granted) {
+                helper.showPermissionRationale(this, "Permissão câmera",
+                    "Sem a câmera não é possível tirar foto.", onOk = { helper.requestCameraPermission() })
+            }
+        })
+
+        // exemplo de disparo
+        // helper.requestCameraPermission()
+        // helper.requestLocationPermissions()
+    }
+}

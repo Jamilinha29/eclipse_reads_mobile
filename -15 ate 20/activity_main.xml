@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.motion.widget.MotionLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/motionLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    motion:layoutDescription="@xml/scene_card">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardCornerRadius="12dp"
+        android:padding="16dp"
+        app:cardUseCompatPadding="true"
+        android:background="?attr/selectableItemBackground">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Clique para animar"
+            android:textSize="18sp" />
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.motion.widget.MotionLayout>
