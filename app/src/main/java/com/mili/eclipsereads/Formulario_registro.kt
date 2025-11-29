@@ -1,4 +1,4 @@
-package com.mili.eclipsereads.ui.login
+package com.mili.eclipsereads
 
 import android.content.Context
 import android.content.Intent
@@ -11,8 +11,8 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import androidx.fragment.app.Fragment
-import com.mili.eclipsereads.ui.home.Central
-import com.mili.eclipsereads.R
+import kotlin.apply
+import kotlin.toString
 
 class Formulario_registro : Fragment() {
 

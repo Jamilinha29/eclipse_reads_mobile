@@ -1,18 +1,15 @@
-package com.mili.eclipsereads.ui.login
+package com.mili.eclipsereads
 
 import android.content.res.ColorStateList
-import android.graphics.Color
 import android.os.Bundle
 import android.view.animation.AnimationUtils
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.graphics.toColorInt
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.commit
-import androidx.fragment.app.replace
-import com.mili.eclipsereads.R
-
 
 class Log0regis : AppCompatActivity() {
     private var mostrandoLogin = true
@@ -39,7 +36,7 @@ class Log0regis : AppCompatActivity() {
                     R.anim.slide_in_left,
                     R.anim.slide_out_right
                 )
-                replace<Formulario_login>(R.id.form_placeholder)
+                replace(R.id.form_placeholder, Formulario_login())
             }
         }
 
@@ -56,7 +53,7 @@ class Log0regis : AppCompatActivity() {
                         R.anim.slide_in_right,   // entra da direita
                         R.anim.slide_out_left    // sai para esquerda
                     )
-                    replace<Formulario_registro>(R.id.form_placeholder)
+                    replace(R.id.form_placeholder, Formulario_registro())
                 }
             }
         }
@@ -71,7 +68,7 @@ class Log0regis : AppCompatActivity() {
                         R.anim.slide_in_left,    // entra da esquerda
                         R.anim.slide_out_right   // sai para direita
                     )
-                    replace<Formulario_login>(R.id.form_placeholder)
+                    replace(R.id.form_placeholder, Formulario_login())
                 }
             }
         }
@@ -82,24 +79,24 @@ class Log0regis : AppCompatActivity() {
         if (mostrandoLogin) {
             // LOGIN ativo
             botaoLogin.backgroundTintList =
-                ColorStateList.valueOf(Color.parseColor("#00FFFFFF"))
-            botaoLogin.setTextColor(Color.parseColor("#C592FF"))
+                ColorStateList.valueOf("#00FFFFFF".toColorInt())
+            botaoLogin.setTextColor("#C592FF".toColorInt())
             botaoLogin.startAnimation(anim)
 
             // CADASTRO inativo
             botaoCadastro.backgroundTintList =
-                ColorStateList.valueOf(Color.parseColor("#10070707"))
-            botaoCadastro.setTextColor(Color.parseColor("#C592FF"))
+                ColorStateList.valueOf("#10070707".toColorInt())
+            botaoCadastro.setTextColor("#C592FF".toColorInt())
 
         } else {
             botaoCadastro.backgroundTintList =
-                ColorStateList.valueOf(Color.parseColor("#00FFFFFF"))
-            botaoCadastro.setTextColor(Color.parseColor("#C592FF"))
+                ColorStateList.valueOf("#00FFFFFF".toColorInt())
+            botaoCadastro.setTextColor("#C592FF".toColorInt())
             botaoCadastro.startAnimation(anim)
 
             botaoLogin.backgroundTintList =
-                ColorStateList.valueOf(Color.parseColor("#10070707"))
-            botaoLogin.setTextColor(Color.parseColor("#C592FF"))
+                ColorStateList.valueOf("#10070707".toColorInt())
+            botaoLogin.setTextColor("#C592FF".toColorInt())
         }
     }
 }

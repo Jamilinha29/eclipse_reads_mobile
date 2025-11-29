@@ -1,4 +1,4 @@
-package com.mili.eclipsereads.ui.home
+package com.mili.eclipsereads
 
 import android.content.Context
 import android.os.Bundle
@@ -14,8 +14,8 @@ import androidx.fragment.app.Fragment
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.switchmaterial.SwitchMaterial
 import com.google.android.material.textfield.TextInputEditText
-import com.mili.eclipsereads.R
 import java.io.File
+import kotlin.apply
 
 class Configuracoes : Fragment() {
 

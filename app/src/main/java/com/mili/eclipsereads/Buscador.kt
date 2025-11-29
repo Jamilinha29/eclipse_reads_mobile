@@ -1,4 +1,4 @@
-package com.mili.eclipsereads.ui.home
+package com.mili.eclipsereads
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,8 +10,6 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.mili.eclipsereads.ui.details.Info_livro
-import com.mili.eclipsereads.R
 
 class Buscador : Fragment() {
 

@@ -1,4 +1,4 @@
-package com.mili.eclipsereads.ui.details
+package com.mili.eclipsereads
 
 import android.content.Context
 import android.graphics.Color
@@ -11,7 +11,9 @@ import android.widget.Toast
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
-import com.mili.eclipsereads.R
+import kotlin.apply
+import kotlin.collections.get
+import kotlin.collections.remove
 
 class Info_livro : Fragment() {
 

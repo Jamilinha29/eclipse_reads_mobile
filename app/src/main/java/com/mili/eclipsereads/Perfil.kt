@@ -1,4 +1,4 @@
-package com.mili.eclipsereads.ui.home
+package com.mili.eclipsereads
 
 import android.app.Activity
 import android.content.Context
@@ -17,8 +17,6 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.google.android.material.imageview.ShapeableImageView
-import com.mili.eclipsereads.R
-import com.mili.eclipsereads.ui.login.Formulario_login
 
 class Perfil : Fragment() {
 
@@ -67,7 +65,7 @@ class Perfil : Fragment() {
             val prefs = requireActivity().getSharedPreferences("DADOS_USUARIO", Context.MODE_PRIVATE)
             prefs.edit().clear().apply()
 
-            val intent = Intent(requireActivity(), Formulario_login::class.java)
+            val intent = Intent(requireActivity(), Log0regis::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
         }

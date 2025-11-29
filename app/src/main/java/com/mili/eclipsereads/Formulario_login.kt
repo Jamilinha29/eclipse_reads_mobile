@@ -1,4 +1,4 @@
-package com.mili.eclipsereads.ui.login
+package com.mili.eclipsereads
 
 import android.content.Context
 import android.content.Intent
@@ -12,8 +12,8 @@ import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
 import androidx.fragment.app.Fragment
-import com.mili.eclipsereads.ui.home.Central
-import com.mili.eclipsereads.R
+import kotlin.apply
+import kotlin.collections.remove
 
 class Formulario_login : Fragment() {
 
