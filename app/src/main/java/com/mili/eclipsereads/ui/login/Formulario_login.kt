@@ -1,17 +1,19 @@
-package com.mili.eclipsereads
+package com.mili.eclipsereads.ui.login
 
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
+import androidx.fragment.app.Fragment
+import com.mili.eclipsereads.ui.home.Central
+import com.mili.eclipsereads.R
 
 class Formulario_login : Fragment() {
 

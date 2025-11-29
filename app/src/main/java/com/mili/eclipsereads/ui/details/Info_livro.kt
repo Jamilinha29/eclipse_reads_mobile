@@ -1,7 +1,6 @@
-package com.mili.eclipsereads
+package com.mili.eclipsereads.ui.details
 
 import android.content.Context
-import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,6 +11,7 @@ import android.widget.Toast
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
+import com.mili.eclipsereads.R
 
 class Info_livro : Fragment() {
 
@@ -90,7 +90,7 @@ class Info_livro : Fragment() {
             favorites.add(bookId)
             Toast.makeText(requireContext(), "Livro adicionado aos favoritos", Toast.LENGTH_SHORT).show()
         }
-        
+
         prefs.edit().putStringSet("FAVORITES", favorites).apply()
         updateFavoriteButtonState()
     }

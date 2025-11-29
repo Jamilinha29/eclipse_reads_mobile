@@ -1,15 +1,17 @@
-package com.mili.eclipsereads
+package com.mili.eclipsereads.ui.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
-import androidx.fragment.app.Fragment
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.mili.eclipsereads.ui.details.Info_livro
+import com.mili.eclipsereads.R
 
 class Buscador : Fragment() {
 
@@ -59,9 +61,12 @@ class Buscador : Fragment() {
         val mostReadRecyclerView = view.findViewById<RecyclerView>(R.id.most_read_recycler_view)
         val newAdditionsRecyclerView = view.findViewById<RecyclerView>(R.id.new_additions_recycler_view)
 
-        recommendedRecyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-        mostReadRecyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-        newAdditionsRecyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        recommendedRecyclerView.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        mostReadRecyclerView.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        newAdditionsRecyclerView.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
 
         // Exemplo com lista de livros
         val books = listOf(
@@ -97,7 +102,7 @@ class Buscador : Fragment() {
     }
 
     // Adapter para os livros
-    class BookAdapter(private val books: List<Book>, private val onItemClick: (Book) -> Unit) : 
+    class BookAdapter(private val books: List<Book>, private val onItemClick: (Book) -> Unit) :
         RecyclerView.Adapter<BookAdapter.BookViewHolder>() {
 
         class BookViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -113,7 +118,7 @@ class Buscador : Fragment() {
             val book = books[position]
             // TODO: Preencher os dados do livro no ViewHolder
 
-            holder.itemView.setOnClickListener { 
+            holder.itemView.setOnClickListener {
                 onItemClick(book)
             }
         }

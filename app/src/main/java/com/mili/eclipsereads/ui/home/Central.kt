@@ -1,4 +1,4 @@
-package com.mili.eclipsereads
+package com.mili.eclipsereads.ui.home
 
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
@@ -15,6 +15,12 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.mili.eclipsereads.ui.home.Buscador
+import com.mili.eclipsereads.ui.home.Configuracoes
+import com.mili.eclipsereads.ui.home.Inicio
+import com.mili.eclipsereads.ui.home.Minha_biblioteca
+import com.mili.eclipsereads.ui.home.Perfil
+import com.mili.eclipsereads.R
 
 class Central : AppCompatActivity() {
 

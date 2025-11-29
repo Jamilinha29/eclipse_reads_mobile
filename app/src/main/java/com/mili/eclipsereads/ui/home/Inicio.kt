@@ -1,4 +1,4 @@
-package com.mili.eclipsereads
+package com.mili.eclipsereads.ui.home
 
 import android.content.Context
 import android.os.Bundle
@@ -12,6 +12,8 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.mili.eclipsereads.ui.details.Info_livro
+import com.mili.eclipsereads.R
 
 class Inicio : Fragment() {
 
@@ -70,8 +72,10 @@ class Inicio : Fragment() {
     }
 
     private fun setupRecyclerViews() {
-        continueReadingRecyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-        dailyUpdatesRecyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        continueReadingRecyclerView.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        dailyUpdatesRecyclerView.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
 
         val continueReadingBooks = listOf(
             Book("book_4", "Livro em Andamento", "Autor", R.drawable.capa)
@@ -129,7 +133,7 @@ class Inicio : Fragment() {
             .commit()
     }
 
-    class BookAdapter(private val books: List<Book>, private val onItemClick: (Book) -> Unit) : 
+    class BookAdapter(private val books: List<Book>, private val onItemClick: (Book) -> Unit) :
         RecyclerView.Adapter<BookAdapter.BookViewHolder>() {
 
         class BookViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -143,7 +147,7 @@ class Inicio : Fragment() {
 
         override fun onBindViewHolder(holder: BookViewHolder, position: Int) {
             val book = books[position]
-            holder.itemView.setOnClickListener { 
+            holder.itemView.setOnClickListener {
                 onItemClick(book)
             }
         }
@@ -157,7 +161,7 @@ class Inicio : Fragment() {
             inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
         ): View? {
             // TODO: Inflar o layout da tela de leitura e carregar o livro
-            return TextView(requireContext()).apply { text = "Tela de Leitura" } 
+            return TextView(requireContext()).apply { text = "Tela de Leitura" }
         }
     }
 }

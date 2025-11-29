@@ -1,4 +1,4 @@
-package com.mili.eclipsereads
+package com.mili.eclipsereads.ui.home
 
 import android.app.Activity
 import android.content.Context
@@ -17,6 +17,8 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.google.android.material.imageview.ShapeableImageView
+import com.mili.eclipsereads.R
+import com.mili.eclipsereads.ui.login.Formulario_login
 
 class Perfil : Fragment() {
 

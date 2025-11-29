@@ -1,12 +1,13 @@
-package com.mili.eclipsereads
+package com.mili.eclipsereads.ui.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.fragment.app.Fragment
+import com.mili.eclipsereads.R
 
 class Minha_biblioteca : Fragment() {
 

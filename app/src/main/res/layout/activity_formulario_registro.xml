@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Formulario_registro">
+    tools:context=".ui.login.Formulario_registro">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/nome_layout"

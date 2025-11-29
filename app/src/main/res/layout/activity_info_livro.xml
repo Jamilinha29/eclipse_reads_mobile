@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?android:colorBackground"
-    tools:context=".Info_livro">
+    tools:context=".ui.details.Info_livro">
 
     <ImageView
         android:id="@+id/imageView10"

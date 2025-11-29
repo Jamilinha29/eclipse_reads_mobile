@@ -1,5 +1,7 @@
-package com.mili.eclipsereads
+package com.mili.eclipsereads.ui.login
 
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.os.Bundle
 import android.view.animation.AnimationUtils
 import android.widget.Button
@@ -9,6 +11,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.commit
 import androidx.fragment.app.replace
+import com.mili.eclipsereads.R
 
 
 class Log0regis : AppCompatActivity() {
@@ -79,24 +82,24 @@ class Log0regis : AppCompatActivity() {
         if (mostrandoLogin) {
             // LOGIN ativo
             botaoLogin.backgroundTintList =
-                android.content.res.ColorStateList.valueOf(android.graphics.Color.parseColor("#00FFFFFF"))
-            botaoLogin.setTextColor(android.graphics.Color.parseColor("#C592FF"))
+                ColorStateList.valueOf(Color.parseColor("#00FFFFFF"))
+            botaoLogin.setTextColor(Color.parseColor("#C592FF"))
             botaoLogin.startAnimation(anim)
 
             // CADASTRO inativo
             botaoCadastro.backgroundTintList =
-                android.content.res.ColorStateList.valueOf(android.graphics.Color.parseColor("#10070707"))
-            botaoCadastro.setTextColor(android.graphics.Color.parseColor("#C592FF"))
+                ColorStateList.valueOf(Color.parseColor("#10070707"))
+            botaoCadastro.setTextColor(Color.parseColor("#C592FF"))
 
         } else {
             botaoCadastro.backgroundTintList =
-                android.content.res.ColorStateList.valueOf(android.graphics.Color.parseColor("#00FFFFFF"))
-            botaoCadastro.setTextColor(android.graphics.Color.parseColor("#C592FF"))
+                ColorStateList.valueOf(Color.parseColor("#00FFFFFF"))
+            botaoCadastro.setTextColor(Color.parseColor("#C592FF"))
             botaoCadastro.startAnimation(anim)
 
             botaoLogin.backgroundTintList =
-                android.content.res.ColorStateList.valueOf(android.graphics.Color.parseColor("#10070707"))
-            botaoLogin.setTextColor(android.graphics.Color.parseColor("#C592FF"))
+                ColorStateList.valueOf(Color.parseColor("#10070707"))
+            botaoLogin.setTextColor(Color.parseColor("#C592FF"))
         }
     }
 }
