@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?android:colorBackground"
-    tools:context="com.mili.eclipsereads.Perfil">
+    tools:context=".ui.home.Perfil">
 
     <ScrollView
         android:layout_width="match_parent"
